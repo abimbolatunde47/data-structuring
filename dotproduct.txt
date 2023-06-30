@@ -1,0 +1,37 @@
+function dot_product(v1, v2) {
+  if (v1.length !== v2.length) {
+    throw new Error('Vectors must have the same length');
+  }
+
+  var result = 0;
+  for (var i = 0; i < v1.length; i++) {
+    result += v1[i] * v2[i];
+  }
+
+  return result;
+}
+
+// Algorithm to check if two vectors are orthogonal
+function checkOrthogonalVectors() {
+  var n = parseInt(prompt("Enter the number of vector pairs to check:"));
+
+  for (var i = 0; i < n; i++) {
+    var v1 = prompt("Enter the elements of the first vector, separated by spaces:")
+      .split(' ')
+      .map(Number);
+    var v2 = prompt("Enter the elements of the second vector, separated by spaces:")
+      .split(' ')
+      .map(Number);
+
+    var dotProduct = dot_product(v1, v2);
+
+    if (dotProduct === 0) {
+      console.log("The vectors are orthogonal.");
+    } else {
+      console.log("The vectors are not orthogonal.");
+    }
+  }
+}
+
+// Call the algorithm to check orthogonal vectors
+checkOrthogonalVectors();
